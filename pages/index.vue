@@ -1,9 +1,11 @@
 <template>
-  <Tutorial/>
+  <p>lol</p>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  mounted() {
+    console.log(this.$content);
+  }
 }
 </script>
