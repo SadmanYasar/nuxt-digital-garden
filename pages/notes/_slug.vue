@@ -1,10 +1,13 @@
 <script>
     export default {
-        data: () => ({
-            note: []
-        }),
-        async created() {
-            this.note = await this.$content(`notes/${this.$route.params.slug}`).fetch()
+        //fetches data in advance
+        //sends page statically to client
+        async asyncData({ $content, route }) {
+            const note = await $content(`notes/${route.params.slug}`).fetch()
+
+            return {
+                note
+            }
         }
     }
 </script>

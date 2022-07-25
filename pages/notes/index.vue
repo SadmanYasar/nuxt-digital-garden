@@ -1,10 +1,11 @@
 <script>
     export default {
-        data: () => ({
-            notes: []
-        }),
-        async created() {
-            this.notes = await this.$content("notes").fetch()
+        async asyncData({ $content }) {
+            const notes = await $content("notes").sortBy("publishOn", "desc").fetch()
+
+            return {
+                notes
+            }
         }
     }
 </script>
